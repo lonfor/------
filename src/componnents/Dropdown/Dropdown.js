@@ -34,6 +34,9 @@ function Dropdown({ onBreedChange, value }) {
         label="Breed"
         onChange={handleChange}
       >
+        <MenuItem key='undef' value=''>
+         All Breeds
+        </MenuItem>
         {Object.keys(searchResultsList).map((key, value) => (
           <MenuItem key={key} value={key}>
             {key}
