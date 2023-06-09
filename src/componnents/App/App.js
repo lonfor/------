@@ -7,7 +7,7 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [selectedBreed, setSelectedBreed] = useState(null);
 
-  const handleSearch = async (breed, parameters) => {
+  const handleSearch = async (breed) => {
     try {
       let breedUrl = breed
         ? `https://dog.ceo/api/breed/${breed}/images/random/30`
@@ -27,17 +27,10 @@ function App() {
 
   return (
     <Container>
-      <Grid
-        container
-        rowSpacing={2}
-        columnSpacing={{ xs: 3, sm: 3, md: 3 }}
-        className="App"
-      >
+      {/* форма пошуку */}
+      <Grid className="App" >
         <Grid
-          item
-          xs={12}
           sx={{
-            gap: "20px",
             marginBottom: "20px",
           }}
         >
@@ -48,11 +41,14 @@ function App() {
           />
         </Grid>
       </Grid>
+
+{/* карточки */}
       <Container
         sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
       >
         <DogBreedsList breeds={searchResults} breedName={selectedBreed} />
       </Container>
+
     </Container>
   );
 }
